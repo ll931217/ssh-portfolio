@@ -1,9 +1,8 @@
 FROM golang:1.23.1-alpine3.20 AS builder
 
 WORKDIR /
-COPY main.go .
-COPY go.mod .
-COPY go.sum .
+COPY *.go .
+COPY go.* .
 RUN go build
 
 FROM alpine:3.20.2

@@ -1,5 +1,9 @@
 # My SSH Portfolio
 
 ```bash
-ssh -p 23234 portfolio.baoge.dev
+go build
+
+./ssh-portfolio
+
+ssh -p 23234 localhost
 ```
