@@ -17,14 +17,21 @@ import (
 	lm "github.com/charmbracelet/wish/logging"
 )
 
-const (
-	host = "0.0.0.0"
-	port = "23234"
-)
-
 func main() {
 	if err := validatePages(); err != nil {
 		log.Fatalf(err.Error())
+	}
+
+	host := "0.0.0.0"
+	val, ok := os.LookupEnv("PORTFOLIO_HOST")
+	if ok {
+		host = val
+	}
+
+	port := "22"
+	portVal, ok := os.LookupEnv("PORTFOLIO_PORT")
+	if ok {
+		port = portVal
 	}
 
 	s, err := wish.NewServer(
